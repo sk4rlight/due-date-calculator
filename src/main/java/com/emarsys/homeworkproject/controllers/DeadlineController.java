@@ -1,6 +1,6 @@
 package com.emarsys.homeworkproject.controllers;
 
-import com.emarsys.homeworkproject.exceptions.InvalidDayException;
+import com.emarsys.homeworkproject.exceptions.NotWorkingDayException;
 import com.emarsys.homeworkproject.models.TimeAndDueDTO;
 import com.emarsys.homeworkproject.services.DeadlineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,9 @@ public class DeadlineController {
   }
 
   @PostMapping("/due-date")
-  public ResponseEntity<?> calculateDueTime(@RequestBody TimeAndDueDTO dto) throws InvalidDayException {
-    return ResponseEntity.ok(deadlineService.CalculateDueTime(dto));
+  public ResponseEntity<String> calculateDueTime(@RequestBody(required = false) TimeAndDueDTO dto)
+      throws NotWorkingDayException {
+    return ResponseEntity.ok(deadlineService.calculateDueTime(dto));
 
   }
 }
