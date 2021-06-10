@@ -1,4 +1,4 @@
 # due-date-calculator
-Due Date Calculator application for Emarsys interview
+Due Date Calculator application
 
 written in Java/Spring.
